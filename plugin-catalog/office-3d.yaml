@@ -8,19 +8,19 @@
 name: office-3d
 title: Office 3D
 repo: https://github.com/oslook/hermes-desktop-plugin-office-3d
-sha: "a38ccb77fb04afe0dffb0907084d7bb7f422081b"
-description: "A live isometric office for Hermes Desktop: every profile is a person at a desk — a profile doing real work sits typing with a lit terminal screen, an online-but-idle one relaxes in the lounge with tea, an offline one leaves an empty desk with a dark monitor. Click a desk to inspect that profile (state, sessions, tokens, cost) and open its chat or latest session; a cost/tokens leaderboard ranks the profiles; plus a global Total/Working/Idle/Offline overview, a status-bar chip, a palette command with keybind, a settings page, and an office_status agent tool that reports the same status to the model. Disclosure — the backend and the tool read each profile's gateway_state.json and open its state.db read-only, running aggregate queries only (COUNT/SUM/MAX over the sessions table: counts, token totals, cost, last-activity); they never read message content, system prompts or titles, make no network calls, and need no credentials. Opening a profile's latest session asks the app's own session.list RPC for that session's id (metadata only) and then opens it through the app's own openSession; no message content is read. POSIX only (platforms: [linux, macos]) because the process-liveness check uses os.kill(pid, 0), which on Windows would terminate the target process."
+sha: "2af4ad9936987128b6cdc9708023757b401f15a6"
+description: "A live isometric office for Hermes Desktop: every profile is a person at a desk — a profile doing real work sits typing with a lit terminal screen, an online-but-idle one relaxes in the lounge with tea, an offline one leaves an empty desk with a dark monitor. Click a desk to inspect that profile (state, sessions, tokens, cost) and open its chat or latest session; a cost/tokens leaderboard ranks the profiles; plus a global Total/Working/Idle/Offline overview, a status-bar chip, a palette command with keybind, a settings page, and an office_status agent tool that reports the same status to the model. Disclosure — the backend and the tool read each profile's gateway_state.json and open its state.db read-only, running aggregate queries only (COUNT/SUM/MAX over the sessions table: counts, token totals, cost, last-activity); they never read message content, system prompts or titles, make no network calls, and need no credentials. Opening a profile's latest session asks the app's own session.list RPC for that session's id (metadata only) and then opens it through the app's own openSession; no message content is read. The process-liveness check uses os.kill(pid, 0) on POSIX and OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION) + GetExitCodeProcess via ctypes on Windows, so it never signals the target process."
 maintainer: oslook
 tier: community
 category: desktop
 requires_hermes: ">=0.21.4"
-version: "1.4.1"
-platforms: [linux, macos]
+version: "1.4.3"
+platforms: [linux, macos, windows]
 docs_url: https://github.com/oslook/hermes-desktop-plugin-office-3d#readme
-image: "https://raw.githubusercontent.com/oslook/hermes-desktop-plugin-office-3d/a38ccb77fb04afe0dffb0907084d7bb7f422081b/docs/banner.png"
+image: "https://raw.githubusercontent.com/oslook/hermes-desktop-plugin-office-3d/2af4ad9936987128b6cdc9708023757b401f15a6/docs/banner.png"
 screenshots:
-  - "https://raw.githubusercontent.com/oslook/hermes-desktop-plugin-office-3d/a38ccb77fb04afe0dffb0907084d7bb7f422081b/docs/screenshot.jpeg"
-  - "https://raw.githubusercontent.com/oslook/hermes-desktop-plugin-office-3d/a38ccb77fb04afe0dffb0907084d7bb7f422081b/docs/screenshot-2.jpeg"
+  - "https://raw.githubusercontent.com/oslook/hermes-desktop-plugin-office-3d/2af4ad9936987128b6cdc9708023757b401f15a6/docs/screenshot.jpeg"
+  - "https://raw.githubusercontent.com/oslook/hermes-desktop-plugin-office-3d/2af4ad9936987128b6cdc9708023757b401f15a6/docs/screenshot-2.jpeg"
 readme: true
 capabilities:
   provides_tools:
